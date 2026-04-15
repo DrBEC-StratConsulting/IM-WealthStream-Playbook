@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IM Financial Legacy Playbook — Plain Glass Edition</title>
+<style>
+  :root {
+    --green-deep: #0D2B1F;
+    --green-mid:  #1A4233;
+    --green-light:#255C47;
+    --gold:       #B8860B;
+    --gold-light: #E3C15A;
+    --cream:      #F7F0E4;
+    --cream-dark: #EADFCB;
+    --charcoal:   #1A1A1A;
+    --mid-gray:   #4A4A4A;
+    --light-gray: #DDD1BC;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.75;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--green-deep);
+    color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+    position: relative;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(201,162,39,0.04) 40px,
+      rgba(201,162,39,0.04) 41px
+    );
+  }
+  .cover-inner { position: relative; z-index: 1; max-width: 700px; }
+  .cover-badge {
+    display: inline-block;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    font-size: 9pt;
+    font-family: 'Arial', sans-serif;
+    padding: 6px 18px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .cover h1 {
+    font-size: 38pt;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .cover h2 {
+    font-size: 17pt;
+    color: var(--cream);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .cover h3 {
+    font-size: 13pt;
+    color: var(--gold-light);
+    font-weight: 400;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+  .cover-rule {
+    width: 80px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 28px;
+  }
+  .cover-tagline {
+    font-style: italic;
+    font-size: 11pt;
+    color: #C8D8C0;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+  .cover-edition {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 48px;
+  }
+  .cover-copyright {
+    font-family: 'Arial', sans-serif;
+    font-size: 8pt;
+    color: #8BAE99;
+    line-height: 1.8;
+    border-top: 1px solid rgba(201,162,39,0.3);
+    padding-top: 24px;
+    margin-top: 12px;
+  }
+  .cover-copyright em { color: #AACFBA; }
+  .edition-pill {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--green-deep);
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  /* ── LAYOUT ── */
+  .content { max-width: 780px; margin: 0 auto; padding: 60px 48px; }
+
+  /* ── SECTION HEADERS ── */
+  h2.section-title {
+    font-size: 16pt;
+    color: var(--green-deep);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-top: 52px;
+    margin-bottom: 6px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--gold);
+    page-break-after: avoid;
+  }
+  h3.sub-title {
+    font-size: 12pt;
+    color: var(--green-mid);
+    font-weight: 700;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+  }
+
+  p { margin-bottom: 14px; color: var(--charcoal); }
+
+  /* ── SCRIPTURE CALLOUT ── */
+  .scripture {
+    background: #F5EFD8;
+    border-left: 5px solid var(--gold);
+    padding: 18px 24px;
+    margin: 24px 0;
+    border-radius: 0 6px 6px 0;
+    page-break-inside: avoid;
+  }
+  .scripture p {
+    font-style: italic;
+    font-size: 11.5pt;
+    color: var(--green-deep);
+    margin-bottom: 6px;
+    line-height: 1.65;
+  }
+  .scripture .ref {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+  }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: var(--green-deep);
+    color: var(--gold-light);
+    text-align: center;
+    font-size: 14pt;
+    font-weight: 700;
+    padding: 18px 24px;
+    border-radius: 6px;
+    margin: 24px 0;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── LISTS ── */
+  ol, ul { padding-left: 24px; margin-bottom: 16px; }
+  li { margin-bottom: 8px; color: var(--charcoal); }
+  li strong { color: var(--green-deep); }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 10.5pt;
+    page-break-inside: avoid;
+  }
+  thead tr { background: var(--green-deep); }
+  thead th {
+    color: var(--gold-light);
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    padding: 10px 14px;
+    text-align: left;
+    letter-spacing: 0.05em;
+    font-size: 9.5pt;
+    text-transform: uppercase;
+  }
+  tbody tr:nth-child(even) { background: var(--cream-dark); }
+  tbody tr:nth-child(odd)  { background: var(--cream); }
+  tbody td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--light-gray);
+    vertical-align: top;
+  }
+  tbody td strong { color: var(--green-deep); }
+
+  /* ── COVENANT BOX ── */
+  .covenant {
+    background: var(--green-deep);
+    color: var(--cream);
+    padding: 32px 36px;
+    border-radius: 8px;
+    margin: 32px 0;
+    page-break-inside: avoid;
+  }
+  .covenant h4 {
+    color: var(--gold);
+    font-size: 12pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-family: 'Arial', sans-serif;
+  }
+  .covenant li { color: var(--cream-dark); margin-bottom: 10px; }
+
+  /* ── CLOSING BANNER ── */
+  .closing-banner {
+    background: var(--green-deep);
+    color: var(--cream);
+    text-align: center;
+    padding: 48px 32px;
+    border-radius: 8px;
+    margin-top: 60px;
+    page-break-inside: avoid;
+  }
+  .closing-banner .big-line {
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .closing-banner p { color: #C8D8C0; font-size: 10pt; margin-bottom: 6px; }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid var(--gold);
+    font-family: 'Arial', sans-serif;
+    font-size: 8pt;
+    color: var(--mid-gray);
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { font-size: 10pt; }
+    .cover { min-height: 100vh; }
+    h2.section-title { page-break-before: auto; }
+    .scripture, .formula-box, .covenant, table { page-break-inside: avoid; }
+  }
+
+  /* ── WATERMARK ── */
+  .content {
+    position: relative;
+  }
+  .content::before {
+    content: 'IM';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-family: 'Georgia', serif;
+    font-size: 320pt;
+    font-weight: 700;
+    color: rgba(13, 43, 31, 0.045);
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+  }
+  .content > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── FIXED PAGE FOOTER LOCKUP ── */
+  .page-footer-lockup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--green-deep);
+    border-top: 2px solid var(--gold);
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    text-align: center;
+  }
+  .page-footer-lockup .lockup-name {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+  .page-footer-lockup .lockup-tagline {
+    font-family: 'Georgia', serif;
+    font-size: 7.5pt;
+    font-style: italic;
+    color: #C8D8C0;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+  }
+  .page-footer-lockup .lockup-byline {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    color: #8BAE99;
+    letter-spacing: 0.05em;
+    margin-top: 1px;
+    line-height: 1.3;
+  }
+  /* Push content above fixed footer */
+  body { padding-bottom: 56px; }
+
+  /* ── PRINT: watermark and footer ── */
+  @media print {
+    .content::before {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+    }
+    .page-footer-lockup {
+      position: fixed;
+      bottom: 0;
+    }
+    body { padding-bottom: 56px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ══════════ COVER ══════════ -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-badge">Financial Literacy Month &nbsp;·&nbsp; April 2026</div>
+    <h1>INTENTIONAL MEN</h1>
+    <div class="cover-rule"></div>
+    <h2>FIRST Wealth Stream: Financial Wealth</h2>
+    <h3>Financial Legacy Playbook</h3>
+    <div class="edition-pill">✦ Plain Glass Edition ✦</div>
+    <p class="cover-tagline">
+      "I AM Created with Purpose.<br/>
+      I AM Building a Legacy.<br/>
+      I AM Responsible for My Family's Future."
+    </p>
+    <div class="cover-edition">Intentional Life Center &nbsp;·&nbsp; Dr. Bryan E. Crute</div>
+    <div class="cover-copyright">
+      © Dr. Bryan E. Crute | Intentional Life Center (ILC) | Not for redistribution<br/>
+      
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CONTENT ══════════ -->
+<div class="content">
+
+  <!-- OPENING WORD -->
+  <h2 class="section-title">A Word Before We Begin</h2>
+  
+  <p>This is not a financial seminar. This is a stewardship reckoning.</p>
+  <p>The Intentional Men movement was built on a singular truth: every decision made today is either building or destroying what will be left behind for the next generation. Financial wealth is the <strong>FIRST Wealth Stream</strong> not because money is supreme, but because the absence of financial systems creates pressure that bleeds into every other stream — spiritual, relational, intellectual, and time.</p>
+  <p>This playbook exists because Black men in America are building on ground that was deliberately disrupted. The racial wealth gap is not a motivation gap. It is a systemic gap — one that demands intentional, disciplined, Spirit-led response.</p>
+  
+  <p>This playbook is the cost-counting. Let's begin.</p>
+
+  <!-- PART ONE -->
+  <h2 class="section-title">Part One: Understanding the Battlefield</h2>
+  <h3 class="sub-title">The Racial Wealth Gap</h3>
+  <p>The numbers are not comfortable. The median Black household holds approximately <strong>$44,100 in net worth</strong> compared to <strong>$284,310</strong> for the median White household — about 15 cents for every dollar. This gap did not emerge from personal failures. It was constructed through generations of policy, exclusion, and denied access to wealth-building tools that other communities took for granted.</p>
+  <p>That reality does not call for complaint — it calls for construction. The transfer of wealth happens when intentional men build systems, protect assets, and refuse to let another generation start from zero.</p>
+  
+
+  <h3 class="sub-title">Why Wealth Is Different from Income</h3>
+  <p>A strong income without a wealth strategy is a fast car with no destination. Income flows through the hands. Wealth is what remains — what compounds, what protects, and what transfers.</p>
+  <div class="formula-box">Net Worth = Total Assets &minus; Total Liabilities</div>
+  <p>A man can earn $80,000 a year and have a net worth of zero. Another man earning $45,000 — with systems, protection, and equity — can have a net worth building steadily toward financial legacy. The difference is intentionality.</p>
+
+  <!-- PART TWO -->
+  <h2 class="section-title">Part Two: The Wealth-Building Hierarchy</h2>
+  
+  <p>Wisdom means building in the right order. Attempting to invest aggressively before the financial foundation is stable is like planting seeds on a roof — there is no ground for roots.</p>
+  <ol>
+    <li><strong>Spiritual and Personal Stewardship</strong> — Align every money decision with character, discipline, and Kingdom purpose.</li>
+    <li><strong>Cash-Flow Clarity</strong> — A written budget is liberation. Every dollar given a name stops wandering.</li>
+    <li><strong>Starter Reserves</strong> — Build an emergency buffer so a car repair does not become a credit card crisis.</li>
+    <li><strong>Debt Stabilization</strong> — Stop high-interest debt from consuming the margin God entrusted to you.</li>
+    <li><strong>Core Protection</strong> — Insurance, legal documents, and beneficiaries are stewardship essentials.</li>
+    <li><strong>Credit Optimization</strong> — Strong credit reduces the cost of building.</li>
+    <li><strong>Ownership Strategy</strong> — Build equity through retirement accounts, investing, homeownership, and business value.</li>
+    <li><strong>Legacy Transfer</strong> — Estate plans, succession strategies, and family financial discipleship.</li>
+  </ol>
+  
+
+  <!-- PART THREE -->
+  <h2 class="section-title">Part Three: Know Your Number</h2>
+  
+  <p>Before a man can build, he must know where he stands. Most men are managing money by feeling rather than by fact. The first act of financial courage is pulling every account balance and every debt balance into one honest picture.</p>
+  <table>
+    <thead><tr><th>Assets</th><th>Liabilities</th></tr></thead>
+    <tbody>
+      <tr><td>Checking &amp; Savings</td><td>Credit Cards</td></tr>
+      <tr><td>Emergency Fund</td><td>Student Loans</td></tr>
+      <tr><td>Retirement Accounts (401k, IRA, Roth)</td><td>Auto Loans</td></tr>
+      <tr><td>Brokerage Accounts</td><td>Mortgage Balance</td></tr>
+      <tr><td>Home Market Value</td><td>Personal Loans</td></tr>
+      <tr><td>Vehicle Value</td><td>Tax Debt</td></tr>
+      <tr><td>Business Value</td><td>Other Obligations</td></tr>
+    </tbody>
+  </table>
+  <p>A negative net worth is not shame — it is a baseline. Every man who has ever built wealth started with a number and worked from there.</p>
+
+  <!-- PART FOUR -->
+  <h2 class="section-title">Part Four: The Budget — Stewarding What God Gave</h2>
+  
+  <p>Honoring God with possessions begins with knowing what the possessions are and where they go. The 50/30/20 framework is a starting diagnostic — not a law, but a lens.</p>
+  <table>
+    <thead><tr><th>Bucket</th><th>Target</th><th>Covers</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Needs</strong></td><td>~50%</td><td>Housing, utilities, food, transportation, insurance, minimum debt payments</td></tr>
+      <tr><td><strong>Wants</strong></td><td>~30%</td><td>Entertainment, dining, travel, hobbies, discretionary giving</td></tr>
+      <tr><td><strong>Savings &amp; Investing</strong></td><td>~20%</td><td>Emergency fund, retirement contributions, extra debt paydown, investments</td></tr>
+    </tbody>
+  </table>
+  
+  <p>The principle is precise: it is the <em>love</em> of money, not money itself, that destroys. A man with a budget is not chasing money. He is directing it.</p>
+
+  <!-- PART FIVE -->
+  <h2 class="section-title">Part Five: Protection — The Armor of Financial Stewardship</h2>
+  
+  <ul>
+    <li><strong>Health Insurance</strong> — Reduces exposure to the most common cause of financial catastrophe in American households.</li>
+    <li><strong>Term Life Insurance</strong> — It is a promise kept to your family even after death.</li>
+    <li><strong>Disability Insurance</strong> — The ability to earn is often a household's largest asset. Protect it.</li>
+    <li><strong>Homeowners or Renters Insurance</strong> — Property and liability protection.</li>
+    <li><strong>Auto Insurance</strong> — Legal requirement and practical protection.</li>
+    <li><strong>Umbrella Liability Insurance</strong> — For households with growing assets, income, or landlord responsibilities.</li>
+  </ul>
+  
+
+  <!-- PART SIX -->
+  <h2 class="section-title">Part Six: Real Estate — Equity as Inheritance</h2>
+  
+  <p>Homeownership transitions a man from renter — building a landlord's equity — to owner, building his own. Equity compounds quietly. Equity transfers generationally.</p>
+  <table>
+    <thead><tr><th>Path</th><th>What It Builds</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Primary Residence</strong></td><td>Stability, forced equity, community rootedness</td></tr>
+      <tr><td><strong>House Hacking</strong></td><td>Offset housing cost while building equity</td></tr>
+      <tr><td><strong>Rental Property</strong></td><td>Cash flow and appreciation when underwritten carefully</td></tr>
+      <tr><td><strong>Land / Redevelopment</strong></td><td>Long-horizon wealth with higher due diligence requirements</td></tr>
+    </tbody>
+  </table>
+
+  <!-- PART SEVEN -->
+  <h2 class="section-title">Part Seven: Business &amp; Tax Strategy — Ownership Changes the Math</h2>
+  
+  <p>Business equity is one of the most powerful accelerators of Black family wealth. Assess the opportunity, acquire when ready, and reinvest with discipline.</p>
+  <ul>
+    <li>Separate personal and business finances from day one.</li>
+    <li>Build bookkeeping discipline before it is urgently needed.</li>
+    <li>Pay yourself intentionally, not randomly.</li>
+    <li>Track profit margin, owner compensation, tax reserve, and cash runway.</li>
+    <li>Build systems so the business can function beyond the founder.</li>
+  </ul>
+  
+
+  <!-- PART EIGHT -->
+  <h2 class="section-title">Part Eight: Credit Optimization — Borrowing Power as a Tool</h2>
+  
+  <ul>
+    <li>Pay every obligation on time, every time.</li>
+    <li>Keep revolving utilization below 30% — lower as a goal.</li>
+    <li>Review credit reports regularly for errors or fraud.</li>
+    <li>Avoid unnecessary hard inquiries.</li>
+    <li>Never use a credit card as a substitute for income margin that does not exist.</li>
+  </ul>
+
+  <!-- PART NINE -->
+  <h2 class="section-title">Part Nine: Investing — Making Money Work While You Pray</h2>
+  
+  <p>Compound interest allows money to earn returns on prior returns. When $100 earns 5% annually, it becomes $105 after year one — and $110.25 after year two, because interest is earned on prior interest. The earlier the seed is planted, the longer the compound growth runs.</p>
+  
+  <p>Diversification is not a modern concept — it is time-tested wisdom that serious investors have applied for centuries.</p>
+  <ol>
+    <li>Build and maintain emergency savings.</li>
+    <li>Capture any employer retirement match — immediate 100% return on that portion.</li>
+    <li>Eliminate toxic high-interest debt.</li>
+    <li>Add regular, consistent retirement contributions.</li>
+    <li>Consider diversified long-term brokerage investing.</li>
+    <li>Increase contributions as income grows.</li>
+  </ol>
+
+  <!-- PART TEN -->
+  <h2 class="section-title">Part Ten: Estate Planning — Legacy Is a Legal Document Too</h2>
+  
+  <p>The single most common estate planning failure is not poverty — it is the absence of documents. An estate plan is knowledge applied to protection.</p>
+  <table>
+    <thead><tr><th>Document / Task</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Will</strong></td><td>Directs property distribution; names guardians</td></tr>
+      <tr><td><strong>Trust</strong></td><td>Control, privacy, and succession planning</td></tr>
+      <tr><td><strong>Durable Financial POA</strong></td><td>Authorizes financial decisions if incapacity occurs</td></tr>
+      <tr><td><strong>Medical POA</strong></td><td>Authorizes healthcare decisions when needed</td></tr>
+      <tr><td><strong>Living Will / Advance Directive</strong></td><td>States treatment preferences</td></tr>
+      <tr><td><strong>Beneficiary Designations</strong></td><td>Often supersede the will — review annually</td></tr>
+    </tbody>
+  </table>
+  
+
+  <!-- PART ELEVEN -->
+  <h2 class="section-title">Part Eleven: Accountability Covenant</h2>
+  
+  <div class="covenant">
+    <h4>The IM Financial Covenant</h4>
+    <ul>
+      <li>Review my budget monthly.</li>
+      <li>Calculate my net worth quarterly.</li>
+      <li>Increase my savings rate intentionally and consistently.</li>
+      <li>Avoid new consumer debt unless strategically necessary.</li>
+      <li>Maintain appropriate insurance coverage at all times.</li>
+      <li>Complete or update estate documents within this calendar year.</li>
+      <li>Share one measurable financial win and one honest challenge with my accountability partner each month.</li>
+      <li>Steward what God entrusted to me as if it belongs to Him — because it does.</li>
+    </ul>
+  </div>
+  
+
+  <!-- PART TWELVE -->
+  <h2 class="section-title">Part Twelve: The 12-Month Action Plan</h2>
+  
+  <table>
+    <thead><tr><th>Month</th><th>Focus</th><th>Primary Action</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>Face Reality</td><td>Calculate net worth; write first written budget</td></tr>
+      <tr><td><strong>2</strong></td><td>Stop the Leaks</td><td>Cut wasteful spending; redirect recovered cash</td></tr>
+      <tr><td><strong>3</strong></td><td>Build Reserve</td><td>Set automatic emergency savings transfer</td></tr>
+      <tr><td><strong>4</strong></td><td>Fix Protection Gaps</td><td>Review all insurance policies and coverage</td></tr>
+      <tr><td><strong>5</strong></td><td>Repair Credit</td><td>Reduce utilization; dispute errors; automate payments</td></tr>
+      <tr><td><strong>6</strong></td><td>Legal Basics</td><td>Update beneficiaries; begin estate documents</td></tr>
+      <tr><td><strong>7</strong></td><td>Retirement Investing</td><td>Enroll or raise automatic retirement contributions</td></tr>
+      <tr><td><strong>8</strong></td><td>Ownership Strategy</td><td>Assess real estate or business readiness</td></tr>
+      <tr><td><strong>9</strong></td><td>Tax Systems</td><td>Create tax reserve; improve bookkeeping rhythm</td></tr>
+      <tr><td><strong>10</strong></td><td>Family Literacy</td><td>Hold a household money meeting</td></tr>
+      <tr><td><strong>11</strong></td><td>Progress Review</td><td>Compare net worth, debt, savings vs. Month 1</td></tr>
+      <tr><td><strong>12</strong></td><td>Renew the Covenant</td><td>Celebrate wins; set next 12-month targets</td></tr>
+    </tbody>
+  </table>
+
+  <!-- CLOSING -->
+  
+  <div class="closing-banner">
+    <div class="big-line">I AM building something that matters.</div>
+    <p>Generational wealth is not built in one year — but it is begun in one decision.</p>
+    <p>The work begins now. The legacy starts here. The covenant is made.</p>
+  </div>
+
+  <div class="doc-footer">
+    <strong>Intentional Men (IM) &nbsp;·&nbsp; FIRST Wealth Stream: Financial Wealth &nbsp;·&nbsp; Financial Literacy Month — April 2026</strong><br/>
+    © Dr. Bryan E. Crute | Intentional Life Center (ILC) | Not for redistribution<br/>
+    
+    This resource is for educational and ministry formation purposes only. Not individualized legal, tax, investment, or insurance advice. Consult licensed professionals for state-specific guidance.
+  </div>
+
+</div>
+
+<div class="page-footer-lockup">
+  <div class="lockup-name">Intentional Men (IM)</div>
+  <div class="lockup-tagline">Strengthened by Purpose</div>
+  <div class="lockup-byline">Dr. Bryan E. Crute &nbsp;·&nbsp; FIRST Wealth Stream: Financial Wealth &nbsp;·&nbsp; April 2026</div>
+</div>
+
+</body>
+</html>
