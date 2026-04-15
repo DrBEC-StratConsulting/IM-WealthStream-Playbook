@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Intentional Men — FIRST Wealth Stream: Financial Wealth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:  #0D2B1F;
+    --green-mid:   #1A4233;
+    --green-light: #255C47;
+    --gold:        #B8860B;
+    --gold-light:  #E3C15A;
+    --gold-pale:   #F5EFD8;
+    --cream:       #F7F0E4;
+    --cream-dark:  #EADFCB;
+    --charcoal:    #1A1A1A;
+    --mid:         #4A4A4A;
+    --muted:       #8BAE99;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    background: var(--green-deep);
+    color: var(--cream);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── WATERMARK ── */
+  body::before {
+    content: 'IM';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 55vw;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.025);
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+    letter-spacing: -0.05em;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem);
+    border-bottom: 1px solid rgba(184, 134, 11, 0.25);
+  }
+
+  .badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 1.75rem;
+  }
+
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+    margin-bottom: 0.4rem;
+  }
+
+  .brand-stream {
+    font-family: 'Work Sans', sans-serif;
+    font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .gold-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 1.5rem auto;
+  }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: #C8D8C0;
+    max-width: 540px;
+    margin: 0 auto 0.5rem;
+    line-height: 1.6;
+  }
+
+  .edition-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 1rem;
+  }
+
+  /* ── MAIN ── */
+  main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  /* ── CARDS ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: 1.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,134,11,0.25);
+    border-radius: 12px;
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card:hover {
+    border-color: var(--gold);
+    background: rgba(184,134,11,0.07);
+    transform: translateY(-3px);
+  }
+
+  .card:active { transform: translateY(0); }
+
+  .card-pill {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--green-deep);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    align-self: flex-start;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.2;
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    color: #C0D4C8;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .card-audience {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gold);
+    color: var(--green-deep);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 11px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .card-cta:hover { background: var(--gold-light); transform: translateX(3px); }
+  .card-cta svg { flex-shrink: 0; }
+
+  /* ── SCRIPTURE STRIP ── */
+  .scripture-strip {
+    background: rgba(184,134,11,0.08);
+    border: 1px solid rgba(184,134,11,0.2);
+    border-radius: 10px;
+    padding: 1.75rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .scripture-strip p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--cream);
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .scripture-strip .ref {
+    font-family: 'Work Sans', sans-serif;
+    font-style: normal;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ── ABOUT STRIP ── */
+  .about-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+  }
+
+  .about-item .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .about-item .lbl {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 2px solid var(--gold);
+    background: rgba(0,0,0,0.25);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  footer .f-name {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  footer .f-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #C8D8C0;
+    letter-spacing: 0.05em;
+  }
+
+  footer .f-copy {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-top: 0.15rem;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 480px) {
+    .cards { grid-template-columns: 1fr; }
+    .about-strip { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Financial Literacy Month &nbsp;·&nbsp; April 2026</div>
+  <h1 class="brand-name">Intentional Men</h1>
+  <p class="brand-stream">FIRST Wealth Stream: Financial Wealth</p>
+  <div class="gold-rule"></div>
+  <p class="tagline">"I AM Created with Purpose. I AM Building a Legacy.<br/>I AM Responsible for My Family's Future."</p>
+  <p class="edition-label">Intentional Life Center &nbsp;·&nbsp; Dr. Bryan E. Crute</p>
+</header>
+
+<main>
+
+  <p class="section-label">Select Your Edition</p>
+
+  <div class="cards">
+
+    <div class="card">
+      <span class="card-pill">✦ Stained Glass Edition</span>
+      <h2 class="card-title">Financial Legacy Playbook with Scripture</h2>
+      <p class="card-desc">The full IM Financial Legacy Playbook with NKJV scripture woven organically throughout — connecting every financial principle to Kingdom stewardship and biblical wisdom.</p>
+      <p class="card-audience">For: IM Members · Church Men · Cohort Enrollees</p>
+      <a class="card-cta" href="./IM_Financial_Legacy_Playbook_STAINED_GLASS.html" target="_blank" rel="noopener noreferrer">
+        Open Edition
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="card">
+      <span class="card-pill" style="background: var(--green-light); color: var(--cream);">Plain Glass Edition</span>
+      <h2 class="card-title">Financial Legacy Playbook — Marketplace Edition</h2>
+      <p class="card-desc">The same comprehensive playbook with all the financial content, hierarchy, and 12-month action plan — without scripture, designed for broader professional and community distribution.</p>
+      <p class="card-audience">For: Marketplace Referrals · Unchurched Contacts · Outreach</p>
+      <a class="card-cta" href="./IM_Financial_Legacy_Playbook_PLAIN_GLASS.html" target="_blank" rel="noopener noreferrer" style="background: var(--green-light); color: var(--cream);">
+        Open Edition
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="scripture-strip">
+    <p>"A good man leaves an inheritance to his children's children, but the wealth of the sinner is stored up for the righteous."</p>
+    <span class="ref">— Proverbs 13:22 (NKJV)</span>
+  </div>
+
+  <div class="about-strip">
+    <div class="about-item">
+      <div class="num">12</div>
+      <div class="lbl">Month Action Plan</div>
+    </div>
+    <div class="about-item">
+      <div class="num">5</div>
+      <div class="lbl">Wealth Streams</div>
+    </div>
+    <div class="about-item">
+      <div class="num">14</div>
+      <div class="lbl">NKJV Scriptures</div>
+    </div>
+    <div class="about-item">
+      <div class="num">2</div>
+      <div class="lbl">Editions Available</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="f-name">Intentional Men (IM)</div>
+  <div class="f-tag">Strengthened by Purpose</div>
+  <div class="f-copy">© Dr. Bryan E. Crute | Intentional Life Center (ILC) | Not for redistribution &nbsp;·&nbsp; April 2026</div>
+</footer>
+
+</body>
+</html>
